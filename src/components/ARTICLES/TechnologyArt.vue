@@ -8,8 +8,7 @@
           title="Выбирайте новости по своим предпочтениям: язык, страна и время постинга"
           style="font-size: px"
           @click="dialog1 = true"
-          src="https://cache.careers360.mobi/media/article_images/2022/9/21/Different_Types_of_Jobs_in_Information_Technology.webp"
-        />
+          src="https://www.componentsbureau.com/assets/images/medium-large/technical-article-artwork.jpg"/>
       </div>
    
    
@@ -65,7 +64,7 @@
               <!--DateTime-->
               <br />
               <br />
-              <h1 class="text-center text-white">IT</h1>
+              <h1 class="text-center text-white">TECHNOLOGY</h1>
               <br />
               <br />
               <div>

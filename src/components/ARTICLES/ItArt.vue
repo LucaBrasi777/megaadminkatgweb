@@ -8,7 +8,7 @@
           title="Выбирайте новости по своим предпочтениям: язык, страна и время постинга"
           style="font-size: px"
           @click="dialog1 = true"
-          src="https://cache.careers360.mobi/media/article_images/2022/9/21/Different_Types_of_Jobs_in_Information_Technology.webp"
+          src="https://www.sdcity.edu/academics/schools-programs/business-it-cosmo/it/imgs/itm3.jpg"
         />
       </div>
    

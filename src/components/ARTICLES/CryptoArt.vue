@@ -8,7 +8,7 @@
           title="Выбирайте новости по своим предпочтениям: язык, страна и время постинга"
           style="font-size: px"
           @click="dialog1 = true"
-          src="https://cache.careers360.mobi/media/article_images/2022/9/21/Different_Types_of_Jobs_in_Information_Technology.webp"
+          src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/104375367/original/42edbf7dd239fe827ffd8863be72c4828d962cde/write-crypto-currency-articles-website-copy-and-advice.jpg"
         />
       </div>
    
@@ -65,7 +65,7 @@
               <!--DateTime-->
               <br />
               <br />
-              <h1 class="text-center text-white">IT</h1>
+              <h1 class="text-center text-white">CRYPTO</h1>
               <br />
               <br />
               <div>

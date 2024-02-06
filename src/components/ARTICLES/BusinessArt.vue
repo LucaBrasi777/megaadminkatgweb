@@ -8,7 +8,7 @@
           title="Выбирайте новости по своим предпочтениям: язык, страна и время постинга"
           style="font-size: px"
           @click="dialog1 = true"
-          src="https://cache.careers360.mobi/media/article_images/2022/9/21/Different_Types_of_Jobs_in_Information_Technology.webp"
+          src="https://smallbusinessesdoitbetter.com/wp-content/uploads/smbiz.jpg"
         />
       </div>
    
@@ -32,7 +32,7 @@
                 variant="underlined"
               ></v-select>
               <!--v-select tags-->
-
+  
               <v-select
                 class="mySelect"
                 clearable
@@ -41,7 +41,7 @@
                 v-model="selectedTags"
                 variant="underlined"
               ></v-select>
-
+  
               <v-sheet width="300" class="mx-auto">
                 <v-form class="fw-bold bg-primary">
                   <!--userName-->
@@ -61,11 +61,11 @@
                   ></v-text-field>
                 </v-form>
               </v-sheet>
-
+  
               <!--DateTime-->
               <br />
               <br />
-              <h1 class="text-center text-white">IT</h1>
+              <h1 class="text-center text-white">BUSINESS</h1>
               <br />
               <br />
               <div>
@@ -83,7 +83,7 @@
                 <button @click="saveDateTime">Сохранить</button> -->
               </div>
               <br />
-
+  
               <div v-if="savedData.length > 0">
                 <h6 class="text-white">Сохраненные данные:</h6>
                 <ul>
@@ -101,18 +101,18 @@
                   </li>
                 </ul>
               </div>
-
+  
               <v-btn class="mt-2" color="primary" @click="saveData"
                 >Сохранить данные</v-btn
               >
-
+  
               <v-btn class="mt-2" color="primary" @click="saveDataAndSendPostRequest">
       Oтправить данные
     </v-btn>
               <!-- <dat2/> -->
             </div>
           </v-card-text>
-
+  
           <v-card-actions>
             <v-spacer></v-spacer>
           </v-card-actions>
@@ -138,14 +138,14 @@
    
    
    </div>
-</template>
-<script>
-import axios from "axios";
-import logo from "../newsLogo.vue";
-import hosting from "../posting.vue";
-import dat from "../../components/data.vue";
-import dat2 from "../../components/data2.vue";
-export default {
+  </template>
+  <script>
+  import axios from "axios";
+  import logo from "../newsLogo.vue";
+  import hosting from "../posting.vue";
+  import dat from "../../components/data.vue";
+  import dat2 from "../../components/data2.vue";
+  export default {
   components: { dat, dat2, hosting, logo },
   data() {
     return {
@@ -211,7 +211,7 @@ export default {
           id: 59,
         },
       ],
-
+  
       language: [
         {
           name: "english",
@@ -226,7 +226,7 @@ export default {
           id: 50,
         },
       ],
-
+  
       selectedLanguageName: null,
       selectedTags: null,
     };
@@ -248,16 +248,16 @@ export default {
       return this.articles.slice(start, end);
     },
   },
-
+  
   methods: {
-saveDataAndSendPostRequest() {
+  saveDataAndSendPostRequest() {
       // Сначала сохраняем данные
       this.saveData();
     this.sendPostRequest();
     
     
     },
-sendPostRequest() {
+  sendPostRequest() {
     
       const dataToPost = {
         language: this.selectedLanguageName,
@@ -277,13 +277,13 @@ sendPostRequest() {
           
         });
     },
-
-
-
-
-
-
-
+  
+  
+  
+  
+  
+  
+  
     formatDateTime(dateTime) {
       const options = {
         year: "numeric",
@@ -294,7 +294,7 @@ sendPostRequest() {
         second: "2-digit",
         hour12: false,
       };
-
+  
       return new Date(dateTime).toLocaleString("en-US", options);
     },
     saveDateTime() {
@@ -312,79 +312,79 @@ sendPostRequest() {
       this.savedData = [];
       
       this.savedData.push(dataToSave);
-
+  
      
       console.log("Сохраненные данные:", this.savedData);
     },
-
-
+  
+  
     
   },
-};
-</script>
-
-<style scoped lang="scss">
-img {
+  };
+  </script>
+  
+  <style scoped lang="scss">
+  img {
   width: auto;
   height: 250px;
-}
-.mt {
+  }
+  .mt {
   margin-top: 200px;
-}
-
-.image-card {
+  }
+  
+  .image-card {
   background-image: url("https://wtop.com/wp-content/uploads/2017/07/world-480x320.jpg");
   position: relative;
-}
-
-
-
-.mySelect .v-select-list {
- // background-color: rgb(29, 131, 234); /* Черный фон для выпадающего списка */
-}
-
-.mySelect .v-list-item {
- // color: white; /* Белый текст для каждого элемента в выпадающем списке */
-}
-
-.dp-custom-input {
+  }
+  
+  
+  
+  .mySelect .v-select-list {
+  // background-color: rgb(29, 131, 234); /* Черный фон для выпадающего списка */
+  }
+  
+  .mySelect .v-list-item {
+  // color: white; /* Белый текст для каждого элемента в выпадающем списке */
+  }
+  
+  .dp-custom-input {
   // box-shadow: 0 0 6px #1976d2;
   // color: #1976d2;
-
+  
   // &:hover {
   //   border-color: #1976d2;
   // }
-}
-
-.dp-custom-menu {
-  //box-shadow: 0 0 6px #f7f8f9;
- 
+  }
   
-}
-
-.dp-custom-cell {
+  .dp-custom-menu {
+  //box-shadow: 0 0 6px #f7f8f9;
+  
+  
+  }
+  
+  .dp-custom-cell {
   // border-radius: 50%;
   // box-shadow: 0 0 3px #f7f8f9;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-li {
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  li {
   list-style: none;
-}
-
-.li-2 {
+  }
+  
+  .li-2 {
   border-radius: 5px;
   padding: 5px;
   margin: 1px;
@@ -393,92 +393,103 @@ li {
   font-size: 40px;
   list-style-type: none;
   background-image: linear-gradient(to right, #040d1d, #053684);
-}
-.ul-2 {
+  }
+  .ul-2 {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-}
-
-
-
-
-
-
-
-
-.footer-section {
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  .footer-section {
   flex: 1;
   margin-bottom: 20px; /* Добавим отступ между разделами */
-}
-
-.footer-section h3 {
+  }
+  
+  .footer-section h3 {
   font-size: 18px;
   margin-bottom: 15px;
-}
-
-.footer-section ul {
+  }
+  
+  .footer-section ul {
   list-style: none;
   padding: 0;
-}
-
-.footer-section ul li {
+  }
+  
+  .footer-section ul li {
   margin-bottom: 10px;
-}
-
-.footer-section ul li a {
+  }
+  
+  .footer-section ul li a {
   color: #030303;
   text-decoration: none;
   transition: color 0.3s;
-}
-
-.footer-section ul li a:hover {
+  }
+  
+  .footer-section ul li a:hover {
   color: #f39c12;
-}
-
-.footer-bottom {
+  }
+  
+  .footer-bottom {
   margin-top: 20px;
   display: flex;
   flex-direction: column; /* Изменяем направление на вертикальное для мобильных устройств */
-}
-
-
-
-.social-icons a:hover {
+  }
+  
+  
+  
+  .social-icons a:hover {
   color: #f39c12;
-}
-
-@media (max-width: 768px) {
-}
-
-.footer {
+  }
+  
+  @media (max-width: 768px) {
+  }
+  
+  .footer {
   @media screen and(max-width: 700px) {
     display: none;
   }
-}
-.footer-2 {
+  }
+  .footer-2 {
   @media screen and(max-width: 700px) {
     display: block;
   }
-}
-.btn-second {
+  }
+  .btn-second {
   background-color: rgb(247, 50, 0);
   color: rgb(4, 4, 4);
-}
-.btn-second:hover {
+  }
+  .btn-second:hover {
   color: white;
-}
-.btn-one {
+  }
+  .btn-one {
   background-color: rgb(179, 193, 26);
   color: rgb(6, 5, 5);
-}
-.btn-one:hover {
+  }
+  .btn-one:hover {
   color: white;
-}
-.btn-three {
+  }
+  .btn-three {
   background-color: rgb(72, 159, 246);
   color: rgb(6, 5, 5);
-}
-.btn-three:hover {
+  }
+  .btn-three:hover {
   color: white;
-}
-</style>
+  }
+  </style>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

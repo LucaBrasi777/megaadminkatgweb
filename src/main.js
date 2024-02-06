@@ -8,6 +8,7 @@
 
 // Components
 import App from './App.vue'
+import router from './router'
 
 // Composables
 import { createApp } from 'vue'
@@ -21,6 +22,7 @@ import '@vuepic/vue-datepicker/dist/main.css'
 
 const app = createApp(App)
 
+app.use(router)
 registerPlugins(app)
 app.component('VueDatePicker', VueDatePicker);
 app.mount('#app')

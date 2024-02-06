@@ -1,67 +1,64 @@
 <template>
-  <v-app id="app" style="">
-   
-
-
+  <v-app id="app">
     <div class="nav">
+      <v-layout class="overflow-visible" style="height: 56px;">
+        <v-bottom-navigation class="text-lowercase" v-model="value" :bg-color="color" mode="shift">
+          <router-link to="/">
+            <v-btn>
+              <v-icon class="pb-4">
+                <img style="width: 30px;" src="https://higherlogicdownload.s3.amazonaws.com/WISE/2bca7ce0-ebe7-4737-b23a-43e76c2e44f3/UploadedImages/Images/Blog_Icons/news.png">
+              </v-icon>
+              <span  style="font-size:10px;">News</span>
+            </v-btn>
+          </router-link>
 
-<v-layout class="overflow-visible "  style="height: 56px;">
-  <v-bottom-navigation
-    v-model="value"
-    :bg-color="color"
-    mode="shift"
-  >
-    <v-btn>
-      
-      <v-icon>mdi-image</v-icon>
-      <span>News</span>
-    </v-btn>
-    <v-btn>
-      <v-icon>mdi-book</v-icon>
-
-      <span>Articles</span>
-    </v-btn>
-    
-    <v-btn>
-      <v-icon>mdi-music-note</v-icon>
-
-      <span>Music</span>
-    </v-btn>
+          <router-link to="/articles">
+            <v-btn>
+              <v-icon class="pb-4">mdi-book</v-icon>
+              <span style="font-size:10px">Articles</span>
+            </v-btn>
+          </router-link>
 
 
-
-    <v-btn>
-
-      <v-icon>mdi-television-play</v-icon>
-      <span>Video</span>
-    </v-btn>
-  </v-bottom-navigation>
-</v-layout>
-
-
-</div>
-  
-<v-footer-component/>
-
- </v-app>
+          <router-link to="/payments">
+          <v-btn > 
+            <v-icon class="pb-4">
+              <img style="width: 40px;" src="https://cdn-icons-png.flaticon.com/512/9721/9721127.png">
+            </v-icon>
+            <span style="font-size:10px">Pay</span>
+          </v-btn>
+        </router-link>
+         
+        <router-link to="/authentication">
+        <v-btn > 
+         
+          <v-icon class="pb-4">
+              <img style="width: 40px;" src=" https://cdn-icons-png.flaticon.com/512/10993/10993955.png">
+            </v-icon>
+            <span style="font-size:10px">Auth</span>
+          </v-btn>
+        </router-link>
+        </v-bottom-navigation>
+      </v-layout>
+    </div>
+    <!-- <v-footer-component/> -->
+    <router-view></router-view>
+  </v-app>
 </template>
 
 <script>
-
-import vFooterComponent from './components/footer/v-footer-component.vue';
-
+//import vFooterComponent from './components/footer/v-footer-component.vue';
 
 export default {
-  components: {vFooterComponent,
-   },
-   computed: {
-    color () {
+  components: {  },
+  computed: {
+    color() {
       switch (this.value) {
-        case 0: return 'indigo'
-        case 1: return 'black'
-        case 2: return 'brown'
-        case 3: return 'red'
-        default: return 'blue-grey'
+        case 0: return 'indigo';
+        case 1: return 'black';
+        case 2: return 'red';
+        case 3: return 'blue-grey';
+        default: return 'blue-grey';
       }
     },
   },
@@ -81,7 +78,7 @@ export default {
   },
   methods: {
     checkScroll() {
-      this.showButton = window.scrollY > 100; // Change 100 to the scroll position you prefer
+      this.showButton = window.scrollY > 100;
     },
     scrollToTop() {
       window.scrollTo({
@@ -89,11 +86,7 @@ export default {
         behavior: "smooth",
       });
     },
-    closedHome(){
-    const close = document.getElementById('home').style.display="none"
-    },
     handleScroll() {
-      // Proverka, skrollili li my vverkh
       if (window.scrollY > 0) {
         this.isScrolled = true;
       } else {
@@ -101,79 +94,12 @@ export default {
       }
     },
   },
- 
-  beforeDestroy() {
-    window.removeEventListener("scroll", this.checkScroll);
-  },
-}
+};
 </script>
+
 <style lang="scss" scoped>
-
-.navi{
-  position: fixed;
-  right: 0;
-  left: 0;
-  z-index: 5;
-}
-
-.grid{
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  margin-right: 50px;
-  margin-left: 130px;
-}
-p{
-  margin-left: 10px;
-}
-
-::placeholder{
-  color: rgb(7, 7, 7);
-}
-
-
-ul{
-  margin-left: 50px;
-}
-.brand{
-  width: 100px;
-}
-
-.footer-logo{
-  display: flex;
-  margin: 0 auto;
-}
-
-li{
-  font-weight: bold;
-}
-li:hover{
-  text-decoration: underline;
-}
-
-
-  
-
-#app {
-  // margin-left: 20px;
-  color: rgb(65, 46, 46);
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-}
-
-// .container {
-//   padding-left: 20px;
-//   padding-right: 20px;
-// }
-
-
-.main-div{
-  margin-top: 15px;
-}
-.main-div{
-  @media screen and (max-width: 1199px){
-    margin-top: px;
-  }
-  @media screen and (max-width: 320px){
-    margin-top: 10px;
-  }
+a{
+  text-decoration: none;
+  color: white;
 }
 </style>
