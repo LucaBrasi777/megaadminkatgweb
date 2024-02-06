@@ -1,129 +1,200 @@
 
 
-    <template>
-        <div class="p-2">
-          <button @click="startWatchingPosition" class="text-white">News near me</button>
-         
-         
-         
-          <div v-if="location" class="container mt-6">
-            <p style="font-size:15px">Lt: {{ location.latitude }}</p>
-            <p style="font-size:15px">Lg: {{ location.longitude }}</p>
-          </div>
-          <div v-if="error">
-            <p >{{ error }}</p>
-          </div>
-          <div v-if="nearestCity" class="container">
-            <p style="font-size:15px">City: {{ nearestCity }}</p>
-          </div>
-        </div>
-      </template>
-      
-      <script>
-      import axios from 'axios';
-      
-      export default {
-        data() {
-          return {
-            location: null,
-            error: null,
-            nearestCity: null,
-            watchId: null,
-          };
-        },
-        methods: {
-          getLocation() {
-            if ("geolocation" in navigator) {
-              navigator.geolocation.getCurrentPosition(
-                (position) => {
-                  this.location = {
-                    latitude: position.coords.latitude,
-                    longitude: position.coords.longitude,
-                  };
-                  this.error = null;
-                  this.findNearestCity();
-                },
-                (error) => {
-                  this.error = this.getErrorText(error);
-                  this.location = null;
-                }
-              );
-            } else {
-              this.error = "Geolocation is not supported by your browser.";
-            }
-          },
-          getErrorText(error) {
-            switch (error.code) {
-              case error.PERMISSION_DENIED:
-                return "User denied the request for Geolocation.";
-              case error.POSITION_UNAVAILABLE:
-                return "Location information is unavailable.";
-              case error.TIMEOUT:
-                return "The request to get user location timed out.";
-              default:
-                return "An unknown error occurred.";
-            }
-          },
-          async findNearestCity() {
-            const { latitude, longitude } = this.location;
-            const apiKey = '47b17f7a984143d889ede9e5f8945e97'; // Replace with your actual OpenCage API key
-            const apiUrl = `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${apiKey}`;
-      
-            try {
-              const response = await axios.get(apiUrl);
-              if (response.data.results.length > 0) {
-                this.nearestCity = response.data.results[0].components.city || 'Unknown';
-              } else {
-                this.nearestCity = 'Unknown';
-              }
-            } catch (error) {
-              console.error("Error fetching nearest city:", error);
-              this.nearestCity = 'Unknown';
-            }
-          },
-          startWatchingPosition() {
-            if ("geolocation" in navigator) {
-              const successCallback = (position) => {
-                this.location = {
-                  latitude: position.coords.latitude,
-                  longitude: position.coords.longitude,
-                };
-                this.error = null;
-                this.findNearestCity();
-              };
-      
-              const errorCallback = (error) => {
-                this.error = this.getErrorText(error);
-                this.location = null;
-              };
-      
-              this.watchId = navigator.geolocation.watchPosition(successCallback, errorCallback);
-            } else {
-              this.error = "Geolocation is not supported by your browser.";
-            }
-            return location.reload()
-          },
-        },
-      };
-      </script>
-      
-      <style scoped>
-      p {
-        color: white;
-      }
-      .text-white{
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        background-color:rgb(136, 132, 132);
-        padding: 4px;
-        padding-left: 15px;
-        padding-right: 15px;
-        border-radius: 20px;
-        font-weight: bold;
-        border: 2px solid rgb(5, 5, 5);
-      }
-      .text-white:hover{
-        background-color: rgb(90, 87, 87);
-      }
-      </style>
-      
-       
+<!-- <template>
+  <VueDatePicker v-model="date" :enable-time-picker="true" />
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const date = ref(new Date());
+</script> -->
+
+
+<!-- <template>
+  <div>
+    <VueDatePicker v-model="selectedDate" :enable-time-picker="true" />
+    <p>Выбранная дата и время: {{ selectedDate }}</p>
+    <button @click="saveDateTime">Сохранить</button>
+
+    <v-btn
+                
+                class="mt-2 span-tag bg-primary text-white"
+               
+              >
+            SEND
+    </v-btn>
+
+</div>
+</template> -->
+
+<!-- <script setup>
+import { ref } from 'vue';
+
+const selectedDate = ref(new Date());
+
+const saveDateTime = () => {
+  // Ваш код для сохранения выбранной даты и времени
+  console.log('Выбранная дата и время:', selectedDate.value);
+};
+</script> -->
+
+<!-- <template>
+  <div>
+    <VueDatePicker 
+    menu-class-name="dp-custom-menu"
+    input-class-name="dp-custom-input"
+    :state="true"
+    :offset="0"
+    dark 
+    v-model="selectedDate" 
+    :enable-time-picker="true"
+     />
+    <p>Выбранная дата и время постинга: {{ selectedDate }}</p>
+    <button @click="saveDateTime">Сохранить</button>
+<br/><br/><br/>
+    <v-btn class="mt-2 span-tag bg-primary text-white" @click="sendData">Oтправлять</v-btn>
+  </div>
+</template>
+
+
+
+
+
+
+
+<script setup>
+import { ref } from 'vue';
+const dark = ref(false);
+const selectedDate = ref(new Date());
+
+const saveDateTime = () => {
+  // Ваш код для сохранения выбранной даты и времени
+  console.log('Выбранная дата и время:', selectedDate.value);
+};
+
+const sendData = async () => {
+  try {
+    const response = await fetch('https://api-epicnews404.azurewebsites.net', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        dateTime: selectedDate.value.toISOString(),
+      }),
+    });
+
+    if (response.ok) {
+      console.log('Данные успешно отправлены');
+    } else {
+      console.error('Ошибка при отправке данных');
+    }
+  } catch (error) {
+    console.error('Произошла ошибка:', error);
+  }
+};
+</script>
+
+
+ -->
+
+ <!-- <template>
+  <VueDatePicker 
+  calendar-cell-class-name="dp-custom-cell" 
+  menu-class-name="dp-custom-menu"
+  dark v-model="date" 
+  input-class-name="dp-custom-input" 
+  
+  teleport-center
+
+ 
+  />
+  <p>Выбранная дата и время постинга: {{ date }}</p>
+    <button @click="saveDateTime">Сохранить</button>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const date = ref(new Date());
+
+
+const saveDateTime = () => {
+  
+  console.log('Выбранная дата и время:', date.value);
+};
+</script>
+
+<style lang="scss">
+.dp-custom-input {
+box-shadow: 0 0 6px #1976d2;
+color: #1976d2;
+
+&:hover {
+  border-color: #1976d2;
+}
+}
+.dp-custom-menu {
+  box-shadow: 0 0 6px #f7f8f9;
+  @media screen and (max-width:330px ){
+  width: 200px;}
+}
+.dp-custom-cell {
+  border-radius: 50%;
+}
+</style> -->
+<template>
+  <div>
+    <VueDatePicker 
+      calendar-cell-class-name="dp-custom-cell" 
+      menu-class-name="dp-custom-menu"
+      dark 
+      v-model="date" 
+      input-class-name="dp-custom-input" 
+      teleport-center
+      :enable-time-picker="true" />
+    <p>Выбранная дата и время: {{ date }}</p>
+    <button @click="saveDateTime">Сохранить</button>
+  </div>
+</template>
+
+<script>
+import { ref } from 'vue';
+
+export default {
+  data() {
+    return {
+      date: new Date()
+    };
+  },
+  methods: {
+    saveDateTime() {
+      console.log('Выбранная дата и время:', this.date);
+    }
+  }
+};
+</script>
+
+<style lang="scss">
+.dp-custom-input {
+  box-shadow: 0 0 6px #1976d2;
+  color: #1976d2;
+
+  &:hover {
+    border-color: #1976d2;
+  }
+}
+
+.dp-custom-menu {
+  box-shadow: 0 0 6px #f7f8f9;
+  
+  @media screen and (max-width: 330px) {
+    width: 200px;
+  }
+}
+
+.dp-custom-cell {
+  border-radius: 50%;
+}
+</style>

@@ -1,46 +1,94 @@
 <template>
-  <v-app id="app" >
+  <v-app id="app" style="">
+   
 
-<div class="navi">
-  <navi/>
+
+    <div class="nav">
+
+<v-layout class="overflow-visible "  style="height: 56px;">
+  <v-bottom-navigation
+    v-model="value"
+    :bg-color="color"
+    mode="shift"
+  >
+    <v-btn>
+      
+      <v-icon>mdi-image</v-icon>
+      <span>News</span>
+    </v-btn>
+    <v-btn>
+      <v-icon>mdi-book</v-icon>
+
+      <span>Articles</span>
+    </v-btn>
+    
+    <v-btn>
+      <v-icon>mdi-music-note</v-icon>
+
+      <span>Music</span>
+    </v-btn>
+
+
+
+    <v-btn>
+
+      <v-icon>mdi-television-play</v-icon>
+      <span>Video</span>
+    </v-btn>
+  </v-bottom-navigation>
+</v-layout>
+
+
 </div>
-<br/>
-<div  class="main-div" >
-<router-view></router-view>
-</div>
-  <cook/>    
+  
 <v-footer-component/>
+
  </v-app>
 </template>
 
 <script>
-import cook from './components/cookies/cook.vue'
-// import boots6 from './components/BootstrapMainPage/v-boots-6.vue'
-// import vNavNav from './pages/nav-nav.vue'
-// import vNav from './pages/nav.vue'
-import vFooterComponent from './components/footer/v-footer-component.vue';
-import navi from './components/nav/nav-2.vue';
-// import search from '@/views/Select-2.vue'
-// import searchGrid from '@/views/Select-2-grid.vue'
-export default {
-  components: {vFooterComponent,cook,
-   
-    navi,
-   
 
+import vFooterComponent from './components/footer/v-footer-component.vue';
+
+
+export default {
+  components: {vFooterComponent,
+   },
+   computed: {
+    color () {
+      switch (this.value) {
+        case 0: return 'indigo'
+        case 1: return 'black'
+        case 2: return 'brown'
+        case 3: return 'red'
+        default: return 'blue-grey'
+      }
+    },
   },
   data() {
     return {
+      value: 0,
       isScrolled: false,
+      showButton: false,
     };
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener("scroll", this.checkScroll);
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll);
   },
   methods: {
+    checkScroll() {
+      this.showButton = window.scrollY > 100; // Change 100 to the scroll position you prefer
+    },
+    scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    },
     closedHome(){
     const close = document.getElementById('home').style.display="none"
     },
@@ -52,6 +100,10 @@ export default {
         this.isScrolled = false;
       }
     },
+  },
+ 
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.checkScroll);
   },
 }
 </script>
@@ -113,10 +165,15 @@ li:hover{
 // }
 
 
-
 .main-div{
-  @media screen and(max-width: 320px){
-    margin-top: 30px;
+  margin-top: 15px;
+}
+.main-div{
+  @media screen and (max-width: 1199px){
+    margin-top: px;
+  }
+  @media screen and (max-width: 320px){
+    margin-top: 10px;
   }
 }
 </style>

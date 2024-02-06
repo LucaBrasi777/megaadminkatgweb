@@ -1,77 +1,85 @@
 
-   <template>
-    <div>
-      <v-select
+<template>
+  <div>
+    <v-select
       class="mySelect"
-        clearable
-        chips
-        label="News and articles filter by country"
-        :items="country.map(item => item.name)"
-        v-model="selectedCountryNames"
-        multiple
-        variant="underlined"
-      ></v-select>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        country: [
-          {
-            name: 'USA',
-            id: 51,
-          },
-          {
-            name: 'RU',
-            id: 41,
-          },
-          {
-            name: 'UA',
-            id: 50,
-          },
-        ],
-        selectedCountryNames: [],
-      };
-    },
-    watch: {
-      selectedCountryNames(newSelectedCountryNames) {
-        // Save the IDs instead of names in local storage
-        const selectedCountryIds = newSelectedCountryNames.map(name => {
-          const country = this.country.find(country => country.name === name);
-          return country ? country.id : null;
-        });
-        // Filter out null values before saving to localStorage
-        localStorage.setItem('selectedCountry', JSON.stringify(selectedCountryIds.filter(Boolean)));
-        localStorage.test = 2;
-      },
-    },
-    
-    mounted() {
-      // Load the saved IDs from local storage
+      clearable
+      label="Tags"
+      :items="country.map(item => item.name)"
+      v-model="selectedCountryName"
+      variant="underlined"
+    ></v-select>
+  </div>
+</template>
 
-      const savedSelectedCountryIds = localStorage.getItem('selectedCountry');
-      if (savedSelectedCountryIds) {
-        // Convert the IDs back to names
-        const selectedCountryNames = JSON.parse(savedSelectedCountryIds).map(id => {
-          const country = this.country.find(country => country.id === id);
-          return country ? country.name : null;
-        });
-        this.selectedCountryNames = selectedCountryNames.filter(Boolean); // Remove null values
-      }
+<script>
+export default {
+  data() {
+    return {
+      country: [
+        {
+          name: 'STOCKS',
+          id: 51,
+        },
+        {
+          name: 'FOREX',
+          id: 41,
+        },
+        {
+          name: 'GOLD',
+          id: 50,
+          
+        },
+        {
+          name: 'FORBS',
+          id: 51,
+        },
+        {
+          name: 'COMPANY',
+          id: 41,
+        },
+        {
+          name: 'APPLE',
+          id: 50,
+        },
+        {
+          name: 'SEC',
+          id: 50,
+        },
+        {
+          name: 'ENERGY',
+          id: 50,
+        },
+        {
+          name: 'TESLA',
+          id: 50,
+        },
+      ],
+      selectedCountryName: null,
+    };
+  },
+  watch: {
+    selectedCountryName(newSelectedCountryName) {
+      // Save the ID instead of name in local storage
+      const country = this.country.find(c => c.name === newSelectedCountryName);
+      const selectedCountryId = country ? country.id : null;
+      localStorage.setItem('selectedCountry', selectedCountryId);
     },
-  };
-  </script>
-  <style scoped lang="scss">
-  .mySelect::v-deep .v-chip {
-background-color:rgb(136, 132, 132);
-color: white;
-border:2px solid white;
-font-weight: bold;
-button {
-  color: white;
+  },
+  mounted() {
+    // Load the saved ID from local storage
+    const savedSelectedCountryId = localStorage.getItem('selectedCountry');
+    if (savedSelectedCountryId) {
+      // Convert the ID back to name
+      const selectedCountry = this.country.find(c => c.id === parseInt(savedSelectedCountryId));
+      this.selectedCountryName = selectedCountry ? selectedCountry.name : null;
+    }
+  },
+};
+</script>
+
+<style scoped lang="scss">
+.mySelect::v-deep .v-chip {
+  background-color: none !important;
 }
-}
-  </style>
-  
+</style>
