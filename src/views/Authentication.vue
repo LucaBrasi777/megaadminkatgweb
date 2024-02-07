@@ -89,7 +89,7 @@
 
         <v-list density="compact" nav  class="bg-primary">
           <v-list-item prepend-icon="mdi-folder" title="My Files" value="myfiles"></v-list-item>
-          <v-list-item prepend-icon="mdi-newspaper-variant-outline" title="News preview" value="shared"></v-list-item>
+       <router-link to="/preview"> <v-list-item class="text-white" prepend-icon="mdi-newspaper-variant-outline" title="News preview" value="shared"></v-list-item></router-link>
           <v-list-item prepend-icon="mdi-star" title="Starred" value="starred"></v-list-item>
         </v-list>
       </v-navigation-drawer>

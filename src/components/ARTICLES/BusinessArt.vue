@@ -103,7 +103,7 @@
               </div>
   
               <v-btn class="mt-2" color="primary" @click="saveData"
-                >Сохранить данные</v-btn
+                >Просмотр</v-btn
               >
   
               <v-btn class="mt-2" color="primary" @click="saveDataAndSendPostRequest">
