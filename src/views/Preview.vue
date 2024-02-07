@@ -46,7 +46,7 @@ export default {
         "health",
         "business",
         // "fauna",
-        // "space",
+         "space",
         // "art",
         // "it",
         // "political",
