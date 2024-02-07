@@ -74,8 +74,8 @@
                try {
                  const response = await fetch(
                   // 'https://min-api.cryptocompare.com/data/v2/news/?categories=BTC,ETH&excludeCategories=Sponsored'
-                  'https://min-api.cryptocompare.com/data/v2/news/?categories=Technology,Blockchain&excludeCategories=Defi,Nft&limit=1'
-
+                  //'https://min-api.cryptocompare.com/data/v2/news/?categories=Technology,Blockchain&excludeCategories=Defi,Nft&limit=1'
+                  'https://min-api.cryptocompare.com/data/v2/news/?feeds=cryptocompare,coindesk&extraParams=YourSite'
                   //'https://min-api.cryptocompare.com/data/v2/news/?categories=BTC,ETH,regulation&extraParams=YourSite'
 
                  );
