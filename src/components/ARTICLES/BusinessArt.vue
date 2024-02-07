@@ -5,7 +5,7 @@
           class="btn text-white fw-bold cursor"
           data-bs-toggle="tooltip"
           data-bs-placement="bottom"
-          title="Выбирайте новости по своим предпочтениям: язык, страна и время постинга"
+          title="Выбирайте статьи популярных изданий по своим предпочтениям: язык, страна и время постинга"
           style="font-size: px"
           @click="dialog1 = true"
           src="https://smallbusinessesdoitbetter.com/wp-content/uploads/smbiz.jpg"

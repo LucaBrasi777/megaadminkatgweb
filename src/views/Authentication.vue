@@ -1,18 +1,18 @@
 <template lang="">
-    <div>
+    <div class=" bg-primary ">
        
 
 	<div class="section bg-primary " >
 		<div class="container ">
 			<div class="row full-height justify-content-center">
 				<div class="col-12 text-center align-self-center py-5">
-					<div class="section pb-5 pt-5 pt-sm-2 text-center">
-						<h6 class="mb-0 pb-3 "><span class="text-white">Log In </span><span class="text-white">Sign Up</span></h6>
+					<div class="section  pt-5 pt-sm-2 text-center">
+						<h6 class="mb-0  "><span class="text-white">Log In </span><span class="text-white">Sign Up</span></h6>
 			          	<input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
 			          	<label for="reg-log"></label>
 						<div class="card-3d-wrap mx-auto">
 							<div class="card-3d-wrapper">
-								<div class="card-front">
+								<div class="card-front bg-primary">
 									<div class="center-wrap">
 										<div class="section text-center">
 											<h4 class="mb-4 pb-3 text-white">Log In</h4>
@@ -34,7 +34,7 @@
 				      					</div>
 			      					</div>
 			      				</div>
-								<div class="card-back">
+								<div class="card-back bg-primary">
 									<div class="center-wrap">
 										<div class="section text-center">
 											<h4 class="mb-4 pb-3 text-white">Sign Up</h4>
@@ -69,6 +69,34 @@
     
 
  
+  <v-card  class="bg-primary">
+    <v-layout >
+      <v-navigation-drawer
+      class="bg-primary"
+        expand-on-hover
+        rail
+      >
+        <v-list  class="bg-primary">
+          <v-list-item
+          class="bg-primary"
+            prepend-avatar="https://avatanplus.com/files/resources/mid/5d0276c81491716b519ffd94.png"
+            title="Thanos Vladimirovich"
+            subtitle="thanos_a888@gmailcom"
+          ></v-list-item>
+        </v-list>
+
+        <!-- <v-divider></v-divider> -->
+
+        <v-list density="compact" nav  class="bg-primary">
+          <v-list-item prepend-icon="mdi-folder" title="My Files" value="myfiles"></v-list-item>
+          <v-list-item prepend-icon="mdi-newspaper-variant-outline" title="News preview" value="shared"></v-list-item>
+          <v-list-item prepend-icon="mdi-star" title="Starred" value="starred"></v-list-item>
+        </v-list>
+      </v-navigation-drawer>
+
+      <v-main style="height: 250px"></v-main>
+    </v-layout>
+  </v-card>
 
   
   
@@ -156,7 +184,7 @@ h6 span{
   height: 36px;
   border-radius: 50%;
   color: #f7f6f4;
-  background-color: #0b0b0b;
+  background-color: #0f93f1;
   font-family: 'unicons';
   content: '\eb4f';
   z-index: 0;
@@ -195,9 +223,10 @@ h6 span{
 .card-front, .card-back {
   width: 100%;
   height: 100%;
-  background-color: #2a2b38;
+  //box-shadow: ;
+  //background-color: #3361cb;
   // background-image: url('https://funart.pro/uploads/posts/2021-04/1618526159_45-funart_pro-p-oboi-fon-krasnii-fon-odnotonnii-yarkii-48.jpg');
-  background-color: #2a2727;
+  //background-color: #2a2727;
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: 300%;
@@ -222,7 +251,7 @@ h6 span{
   position: absolute;
   width: 100%;
   padding: 0 35px;
-  top: 50%;
+  top: 35%;
   left: 0;
   transform: translate3d(0, -50%, 35px) perspective(100px);
   z-index: 20;
@@ -342,7 +371,7 @@ h6 span{
   -ms-flex-pack: center;
   text-align: center;
   border: none;
-  background-color:black;
+  background-color:rgb(59, 135, 241);
   color: white;
   // box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
 }

@@ -4,7 +4,7 @@
     </div>
 </template>
 <script>
-import news from '../components/footer/v-footer-component.vue'
+import news from '../components/footer/news.vue'
 export default {
     components:{
         news

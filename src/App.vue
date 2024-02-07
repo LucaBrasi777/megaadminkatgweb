@@ -6,7 +6,7 @@
           <router-link to="/">
             <v-btn>
               <v-icon class="pb-4">
-                <img style="width: 30px;" src="https://higherlogicdownload.s3.amazonaws.com/WISE/2bca7ce0-ebe7-4737-b23a-43e76c2e44f3/UploadedImages/Images/Blog_Icons/news.png">
+                <img style="width: 30px;" :src="news">
               </v-icon>
               <span  style="font-size:10px;">News</span>
             </v-btn>
@@ -14,6 +14,8 @@
 
           <router-link to="/articles">
             <v-btn>
+              <!-- <img style="width: 30px;" :src="art"> -->
+             
               <v-icon class="pb-4">mdi-book</v-icon>
               <span style="font-size:10px">Articles</span>
             </v-btn>
@@ -23,7 +25,7 @@
           <router-link to="/payments">
           <v-btn > 
             <v-icon class="pb-4">
-              <img style="width: 40px;" src="https://cdn-icons-png.flaticon.com/512/9721/9721127.png">
+              <img style="width: 40px;" :src="pay">
             </v-icon>
             <span style="font-size:10px">Pay</span>
           </v-btn>
@@ -33,7 +35,7 @@
         <v-btn > 
          
           <v-icon class="pb-4">
-              <img style="width: 40px;" src=" https://cdn-icons-png.flaticon.com/512/10993/10993955.png">
+              <img style="width: 40px;" :src=" auth">
             </v-icon>
             <span style="font-size:10px">Auth</span>
           </v-btn>
@@ -56,8 +58,8 @@ export default {
       switch (this.value) {
         case 0: return 'indigo';
         case 1: return 'black';
-        case 2: return 'red';
-        case 3: return 'blue-grey';
+        case 2: return 'blue-grey';
+        case 3: return 'primary';
         default: return 'blue-grey';
       }
     },
@@ -67,6 +69,10 @@ export default {
       value: 0,
       isScrolled: false,
       showButton: false,
+      art:' https://images-platform.99static.com/_7EPAKTtZSNLJmg0oEVJCOEe8cc=/500x500/top/smart/99designs-contests-attachments/8/8071/attachment_8071474',
+      news:'https://higherlogicdownload.s3.amazonaws.com/WISE/2bca7ce0-ebe7-4737-b23a-43e76c2e44f3/UploadedImages/Images/Blog_Icons/news.png',
+      pay:'https://cdn-icons-png.flaticon.com/512/9721/9721127.png',
+      auth:'https://cdn-icons-png.flaticon.com/512/10993/10993955.png',
     };
   },
   mounted() {

@@ -5,7 +5,7 @@
           class="btn text-white fw-bold cursor"
           data-bs-toggle="tooltip"
           data-bs-placement="bottom"
-          title="Выбирайте новости по своим предпочтениям: язык, страна и время постинга"
+          title="Выбирайте статьи популярных изданий по своим предпочтениям: язык, страна и время постинга"
           style="font-size: px"
           @click="dialog1 = true"
           src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/104375367/original/42edbf7dd239fe827ffd8863be72c4828d962cde/write-crypto-currency-articles-website-copy-and-advice.jpg"
