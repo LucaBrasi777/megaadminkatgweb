@@ -14,11 +14,11 @@
           <img class="img-fluid w-100" v-else src=" https://www.kingbruwaert.org/wp-content/uploads/2023/06/1.jpg" style="object-fit: cover;"> -->
           <img v-if="item.urlToImage" :src="item.urlToImage" class="card-img-top" >
           <img v-else  :src="image" class="card-img-top" alt="...">
-          <div class="card-body">
-            <a class="card-title text-black fw-bold" :href="item.url" target="_blank">{{item.title}}</a>
+          <div class="card-body  bg-primary">
+            <a class="card-title text-white fw-bold" :href="item.url" target="_blank">{{item.title}}</a>
            
           </div>
-          <span class="text-body text-center" href=""><small>  {{ formatDateTime(item.publishedAt) }}</small></span>
+          <span class="text-body text-white text-center bg-primary" href=""><small>  {{ formatDateTime(item.publishedAt) }}</small></span>
         </div>
       </div>
       
@@ -146,6 +146,5 @@
           }
           .card{
           border: none !important;
-                    box-shadow: none !important;
-        }
+          box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.44);}
     </style>

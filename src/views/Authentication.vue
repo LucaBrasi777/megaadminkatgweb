@@ -75,6 +75,7 @@
       class="bg-primary"
         expand-on-hover
         rail
+       
       >
         <v-list  class="bg-primary">
           <v-list-item

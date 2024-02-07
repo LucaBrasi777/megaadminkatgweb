@@ -8,20 +8,22 @@
     <!-- <div class="row row-cols-1 row-cols-sm-2 g-4">
     -->
     <div class="row ">
+      <h3 class="text-white text-center fw-bold">CRYPTOCURRENCY</h3>
       <div class="col-12 col-sm-6"
       v-for="(item, index) in articles.slice(1)" :key="index">
-      <div class="card">
+      <div class="card mt-2">
         <!-- <img class="img-fluid w-100" v-if="item.urlToImage" :src="item.urlToImage" style="object-fit: cover;">
         <img class="img-fluid w-100" v-else src=" https://www.kingbruwaert.org/wp-content/uploads/2023/06/1.jpg" style="object-fit: cover;"> -->
         <img v-if="item.imageurl" :src="item.imageurl" class="card-img-top" >
         <img v-else  src="#" class="card-img-top" alt="...">
-        <div class="card-body">
-          <a class="card-title text-black fw-bold" :href="item.url" target="_blank">{{item.title}}</a>
+        <div class="card-body bg-primary">
+          <a class="card-title text-white bg-primary fw-bold" :href="item.url" target="_blank">{{item.title}}</a>
          
         </div>
-        <div class="container">
-        <img :src="item.source_info.img" style="width:20px"><span class="text-secondary">{{item.source_info.name}}</span>
+        <div class="container  bg-primary pb-4">
+        <img :src="item.source_info.img" style="width:20px"><span class="text-white">{{item.source_info.name}}</span>
         </div>
+      
       </div>
     </div>
     
@@ -150,7 +152,8 @@
           }
         }
         .card{
+          box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.44);
         border: none !important;
-                  box-shadow: none !important;
+                 // box-shadow: none !important;
       }
   </style>

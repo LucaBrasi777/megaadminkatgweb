@@ -1,7 +1,7 @@
 
 <template>
-  <div class="">
-    <v-sheet class="mx-auto" max-width="600">
+  <div >
+    <v-sheet class="mx-auto" >
       <v-slide-group show-arrows>
         <v-slide-group-item v-for="(category, index) in categories" :key="index" v-slot="{ toggle }">
           <router-link :to="`/preview/${encodeURIComponent(category)}`">
@@ -14,7 +14,7 @@
     </v-sheet>
     <router-view></router-view>
     
-           
+           <img style="width:280px;" src="https://cdn-www-v2.iccsafe.org/wp-content/uploads/chp_resource_icons_v1_Chapter_News2-300x300.png">
            <!-- <div class="container">
                <div class="video-container">
                    <video 

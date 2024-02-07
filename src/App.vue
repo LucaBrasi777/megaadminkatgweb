@@ -1,5 +1,5 @@
 <template>
-  <v-app id="app">
+  <v-app id="app" class="bg-primary">
     <div class="nav">
       <v-layout class="overflow-visible" style="height: 56px;">
         <v-bottom-navigation class="text-lowercase" v-model="value" :bg-color="color" mode="shift">
