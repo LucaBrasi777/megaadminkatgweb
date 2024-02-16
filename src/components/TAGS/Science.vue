@@ -1,19 +1,20 @@
 <template lang="">
     <div>
-        <div class="card">
-        <img
-          class="btn text-white fw-bold cursor"
-          data-bs-toggle="tooltip"
-          data-bs-placement="bottom"
-          title="Выбирайте новости по своим предпочтениям: язык, страна и время постинга"
-          style="font-size: px"
-          @click="dialog1 = true"
-          src="https://img.freepik.com/free-vector/colorful-science-education-background_23-2148490697.jpg"
-        />
+        
+   
+   
+      <div class="card">
+     <img
+        class="btn text-white  fw-bold cursor bg-primary text-white"
+        data-bs-toggle="tooltip"
+        data-bs-placement="bottom"
+        title="Выбирайте новости по своим предпочтениям: язык, страна и время постинга"
+        style="font-size:24px"
+        @click="dialog1 = true"
+        src="https://img.freepik.com/free-vector/colorful-science-education-background_23-2148490697.jpg"
+      >
+   
       </div>
-   
-   
-   
    
    
       <v-dialog v-model="dialog1" width="auto">

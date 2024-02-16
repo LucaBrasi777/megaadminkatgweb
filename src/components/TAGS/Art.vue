@@ -1,19 +1,20 @@
 <template lang="">
     <div>
-        <div class="card">
-        <img
-          class="btn text-white fw-bold cursor"
-          data-bs-toggle="tooltip"
-          data-bs-placement="bottom"
-          title="choose news according to your preferences: language, country, and service news near me"
-          style="font-size: px"
-          @click="dialog1 = true"
-          src="https://images.squarespace-cdn.com/content/v1/615f01fcc47c0255f037666e/91f3c154-4dac-45dd-976b-cd9ce2eac83a/PMC_ARTnews_Logo-1.jpg"
-        />
+        
+   
+   
+      <div class="card">
+     <img
+        class="btn text-white  fw-bold cursor bg-primary text-white"
+        data-bs-toggle="tooltip"
+        data-bs-placement="bottom"
+        title="Выбирайте новости по своим предпочтениям: язык, страна и время постинга"
+        style="font-size:24px"
+        @click="dialog1 = true"
+        src="https://images.squarespace-cdn.com/content/v1/615f01fcc47c0255f037666e/91f3c154-4dac-45dd-976b-cd9ce2eac83a/PMC_ARTnews_Logo-1.jpg"
+      >
+   
       </div>
-   
-   
-   
    
    
       <v-dialog v-model="dialog1" width="auto">

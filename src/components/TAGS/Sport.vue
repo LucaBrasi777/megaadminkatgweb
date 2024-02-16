@@ -1,20 +1,21 @@
 <template lang="">
     <div>
-        <div class="card">
-        <img
-          class="btn text-white fw-bold cursor"
-          data-bs-toggle="tooltip"
-          data-bs-placement="bottom"
-          title="Выбирайте новости по своим предпочтениям: язык, страна и время постинга"
-          style="font-size: px"
-          @click="dialog1 = true"
-          src="https://img.freepik.com/free-vector/sport-equipment-concept_1284-13034.jpg?size=338&ext=jpg&ga=GA1.1.1788068356.1706832000&semt=ais"
-        />
+        
+   
+   
+   
+      <div class="card">
+     <img
+        class="btn text-white  fw-bold cursor bg-primary text-white"
+        data-bs-toggle="tooltip"
+        data-bs-placement="bottom"
+        title="Выбирайте новости по своим предпочтениям: язык, страна и время постинга"
+        style="font-size:24px"
+        @click="dialog1 = true"
+        src="https://img.freepik.com/free-vector/sport-equipment-concept_1284-13034.jpg?size=338&ext=jpg&ga=GA1.1.1788068356.1706832000&semt=ais"
+      >
+   
       </div>
-   
-   
-   
-   
    
       <v-dialog v-model="dialog1" width="auto">
     <v-card class="image-car bg-primary">

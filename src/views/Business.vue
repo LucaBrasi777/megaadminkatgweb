@@ -4,21 +4,21 @@
 
     <main class="container mt-8">
       
-        
+      <h3 class="text-white text-center fw-bold">BUSINESS</h3>
       <div class="row row-cols-1 row-cols-md-4 g-4">
-     
+        
         <div class="col"
         v-for="(item, index) in articles.slice(1)" :key="index">
-        <div class="card">
+        <div class="card ">
           <!-- <img class="img-fluid w-100" v-if="item.urlToImage" :src="item.urlToImage" style="object-fit: cover;">
           <img class="img-fluid w-100" v-else src=" https://www.kingbruwaert.org/wp-content/uploads/2023/06/1.jpg" style="object-fit: cover;"> -->
           <img v-if="item.urlToImage" :src="item.urlToImage" class="card-img-top" >
           <img v-else  :src="image" class="card-img-top" alt="...">
-          <div class="card-body">
-            <a class="card-title text-black fw-bold" :href="item.url" target="_blank">{{item.title}}</a>
+          <div class="card-body  bg-primary">
+            <a class="card-title text-white bg-primary fw-bold" :href="item.url" target="_blank">{{item.title}}</a>
            
           </div>
-          <span class="text-body text-center" href=""><small>  {{ formatDateTime(item.publishedAt) }}</small></span>
+          <span class="text-body text-center  bg-primary" href=""><small>  {{ formatDateTime(item.publishedAt) }}</small></span>
         </div>
       </div>
       

@@ -1,18 +1,17 @@
 <template lang="">
     <div>
-        <div class="card">
-        <img
-          class="btn text-white fw-bold cursor"
-          data-bs-toggle="tooltip"
-          data-bs-placement="bottom"
-          title="Выбирайте новости по своим предпочтениям: язык, страна и время постинга"
-          style="font-size: px"
-          @click="dialog1 = true"
-          src="https://st3.depositphotos.com/9137224/33958/v/450/depositphotos_339588716-stock-illustration-technology-news-3d-inscription-polygonal.jpg"
-        />
+      <div class="card">
+     <img
+        class="btn text-white  fw-bold cursor bg-primary text-white"
+        data-bs-toggle="tooltip"
+        data-bs-placement="bottom"
+        title="Выбирайте новости по своим предпочтениям: язык, страна и время постинга"
+        style="font-size:24px"
+        @click="dialog1 = true"
+        src="https://st3.depositphotos.com/9137224/33958/v/450/depositphotos_339588716-stock-illustration-technology-news-3d-inscription-polygonal.jpg"
+      >
+   
       </div>
-   
-   
    
    
    
@@ -339,33 +338,9 @@ img {
 
 
 
-.mySelect .v-select-list {
- // background-color: rgb(29, 131, 234); /* Черный фон для выпадающего списка */
-}
 
-.mySelect .v-list-item {
- // color: white; /* Белый текст для каждого элемента в выпадающем списке */
-}
 
-.dp-custom-input {
-  // box-shadow: 0 0 6px #1976d2;
-  // color: #1976d2;
 
-  // &:hover {
-  //   border-color: #1976d2;
-  // }
-}
-
-.dp-custom-menu {
-  //box-shadow: 0 0 6px #f7f8f9;
- 
-  
-}
-
-.dp-custom-cell {
-  // border-radius: 50%;
-  // box-shadow: 0 0 3px #f7f8f9;
-}
 
 
 

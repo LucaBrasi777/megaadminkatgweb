@@ -4,9 +4,9 @@
 
     <main class="container mt-8">
       
-        
+      <h3 class="text-white text-center fw-bold">TECHNOLOGY</h3>
       <div class="row row-cols-1 row-cols-md-4 g-4">
-     
+       
         <div class="col"
         v-for="(item,index) in articles.slice(1)" :key="index">
         <div class="card">

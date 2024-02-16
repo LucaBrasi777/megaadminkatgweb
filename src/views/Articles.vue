@@ -1,5 +1,5 @@
 <template lang="">
-     <div>
+     <div class="container bg-primary">
         <div class="row">
   <div class="col-sm-4">
     
@@ -56,6 +56,7 @@
     </div>
 </template>
 <script>
+//import vm from "../components/vModel.vue";
 import business from "../components/ARTICLES/BusinessArt.vue";
 import crypto from "../components/ARTICLES/CryptoArt.vue";
 import it from "../components/ARTICLES/ItArt.vue";
@@ -80,6 +81,8 @@ export default {
    } }, 
 }
 </script>
-<style lang="">
-    
+<style lang="scss" scoped>
+    .col-sm-4{
+      margin-top: 15px;
+    }
 </style>

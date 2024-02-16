@@ -3,7 +3,9 @@
   <div>
     <div id="top-of-page"></div>
     <br/>
+    <h3 class="text-white text-center fw-bold">SPACE</h3>
     <v-row>
+      
       <v-col cols="12" lg="12" xl="8">
         <div>
           <div>
@@ -11,8 +13,9 @@
 
            
 
-            <v-row>
-              <v-col cols="12" md="6" lg="4" v-for="item in paginatedArticles" :key="item">
+            <v-row >
+              
+              <v-col cols="12" md="4" lg="4" v-for="item in paginatedArticles" :key="item">
                   <div class="d-flex align-center">
                    
                           <div class="pl-2">{{ formatDateTime(item.date) }}</div>
@@ -20,10 +23,10 @@
               
                   <div>
                 
-                    <v-card-text class="text">
+                    <v-card-text class="text bg-primary">
                         <div class="text-h5 font-weight-bold info--text">
-                          <a style="font-size:20px" :href="item.url" target="_blank"> {{item.title}}</a><br/>
-                          <a class="a" style="font-size:16px" :href="item.url" target="_blank"> {{item.explanation}}</a>
+                          <a class=" text-white" style="font-size:20px" :href="item.url" target="_blank"> {{item.title}}.</a><br/>
+                          <a class="a text-white" style="font-size:16px" :href="item.url" target="_blank"> {{item.explanation}}</a>
                         </div>
 
                         <div class="text-body-1 py-4">
@@ -88,7 +91,7 @@
 export default {
   name: "Category",
   components: {
-    siderbar: () => import("@/components/details/sidebar"),
+   
   },
   data() {
       return {

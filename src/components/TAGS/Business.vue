@@ -1,18 +1,18 @@
 <template lang="">
   <div>
-      <div class="card">
-      <img
-        class="btn text-white fw-bold cursor"
+      
+ <div class="card">
+     <img
+        class="btn text-white  fw-bold cursor bg-primary text-white"
         data-bs-toggle="tooltip"
         data-bs-placement="bottom"
         title="Выбирайте новости по своим предпочтениям: язык, страна и время постинга"
-        style="font-size: px"
+        style="font-size:24px"
         @click="dialog1 = true"
-        src="https://previews.123rf.com/images/maxkabakov/maxkabakov1508/maxkabakov150802145/44282232-news-concept-pixelated-blue-business-news-icon-on-digital-background.jpg"
-      />
-    </div>
- 
- 
+        src="https://www.chinimandi.com/wp-content/uploads/2018/06/UAE-business-news-overview.jpg"
+      >
+   
+      </div>
  
  
  
@@ -65,7 +65,7 @@
             <!--DateTime-->
             <br />
             <br />
-            <h1 class="text-center text-white">BUSINESS</h1>
+            <h1 class="text-center text-white">ENTERTAINMENT</h1>
             <br />
             <br />
             <div>
@@ -105,7 +105,8 @@
             <v-btn class="mt-2" color="primary" @click="saveData"
               >Просмотр</v-btn
             >
-
+            <v-btn class="mt-2" color="primary" @click="sendPostRequest">ОтправитьTG</v-btn>
+           
             <v-btn class="mt-2" color="primary" @click="saveDataAndSendPostRequest">
     Oтправить данные
   </v-btn>
@@ -151,7 +152,7 @@ data() {
   return {
     savedData: [],
     date: new Date(),
-    // date: new Date().toISOString().substr(0, 10),
+    
     menu: false,
     modal: false,
     menu2: false,
@@ -211,7 +212,7 @@ data() {
         id: 59,
       },
     ],
-
+    selectedTags: [],
     language: [
       {
         name: "english",
@@ -258,31 +259,42 @@ saveDataAndSendPostRequest() {
   
   },
 sendPostRequest() {
-  
     const dataToPost = {
-      language: this.selectedLanguageName,
-      tags: this.selectedTags,
-      username: this.firstName,
-      channelname: this.channelName,
-      chatId: this.lastName,
-      dateTime: this.date.toISOString(),
+        language: this.selectedLanguageName,
+        tags: this.selectedTags,
+        username: this.firstName,
+        channelname: this.channelName,
+        chatId: this.lastName,
+        dateTime: this.date.toISOString(),
     };
-    axios.post("YOUR_API_ENDPOINT", dataToPost)
-      .then(response => {
-        console.log("Ответ от сервера:", response.data);
-        
-      })
-      .catch(error => {
-        console.error("Ошибка при отправке POST запроса:", error);
-        
-      });
-  },
 
+    // Оставляем только отправку сообщения в Telegram
+    this.sendTelegramMessage();
+},
 
+sendTelegramMessage() {
+    const botToken = '6985342414:AAFxpkOhbpnMLBgpI_j9AX_jrHIuNwQrmug';
+    const telegramApiEndpoint = `https://api.telegram.org/bot${botToken}/sendMessage`;
+    const telegramMessage = `
+        Language: ${this.selectedLanguageName}
+        Tags: ${this.selectedTags}
+        Username: ${this.firstName}
+        Chat ID: ${this.lastName}
+        Channelname: ${this.channelName}
+        Date and Time posting news: ${this.formatDateTime(this.date)}
+    `;
 
-
-
-
+    axios.post(telegramApiEndpoint, {
+        chat_id: '1227459883',
+        text: telegramMessage,
+    })
+        .then(response => {
+            console.log("Сообщение успешно отправлено в Telegram:", response.data);
+        })
+        .catch(error => {
+            console.error("Ошибка при отправке сообщения в Telegram:", error);
+        });
+},
 
   formatDateTime(dateTime) {
     const options = {
@@ -482,13 +494,3 @@ color: rgb(6, 5, 5);
 color: white;
 }
 </style>
-
-
-
-
-
-
-
-
-
-

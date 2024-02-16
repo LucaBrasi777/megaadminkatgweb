@@ -7,9 +7,10 @@
       
     <!-- <div class="row row-cols-1 row-cols-sm-2 g-4">
     -->
-    <div class="row ">
-      <h3 class="text-white text-center fw-bold">CRYPTOCURRENCY</h3>
-      <div class="col-12 col-sm-6"
+    <h3 class="text-white text-center fw-bold">CRYPTOCURRENCY</h3>
+    <div class="row row row-cols-1 row-cols-md-4 g-4">
+      
+      <div class="col"
       v-for="(item, index) in articles.slice(1)" :key="index">
       <div class="card mt-2">
         <!-- <img class="img-fluid w-100" v-if="item.urlToImage" :src="item.urlToImage" style="object-fit: cover;">
